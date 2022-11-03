@@ -1,5 +1,6 @@
 import express from "express";
 import * as dotenv from "dotenv";
+import getThings from "./cotrollers/getThings.js";
 
 const { log } = console;
 
@@ -11,8 +12,10 @@ const server = app.listen(port, () => {
   log(`listening to ${port}`);
 });
 
+app.get("/things", getThings);
+
 app.use((req, res) => {
-  res.status(200).json({ message: "print message" });
+  res.status(404).json({ message: "print message" });
 });
 
 server.on("error", (error) => {
