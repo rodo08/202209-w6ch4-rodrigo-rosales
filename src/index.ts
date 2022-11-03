@@ -1,8 +1,16 @@
 import express from "express";
+import * as dotenv from "dotenv";
 
+const { log } = console;
+
+dotenv.config();
 const app = express();
-const port = 4000;
+const port = process.env.PORT;
 
 const server = app.listen(port, () => {
-  console.log(`listening to ${port}`);
+  log(`listening to ${port}`);
+});
+
+server.on("error", (error) => {
+  log("Error on starting server", error.message);
 });
