@@ -4,5 +4,6 @@ export interface Subject {
 }
 
 export interface ThingsIknow {
+  id: any;
   things: Subject[];
 }
